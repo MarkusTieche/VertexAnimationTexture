@@ -1,0 +1,1 @@
+# Vertex Animation Texture in Godot
