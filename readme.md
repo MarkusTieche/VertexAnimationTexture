@@ -7,3 +7,9 @@ In this sample, the cube’s top face moves up and down based on data stored in 
 <p align="center">
   <img src="media/VAT_concept.gif" alt="VAT example" width="600" />
 </p>
+
+### Resources
+|  |  |
+|-------------|--------------|
+| Blender addon   | https://openvat.org/       |
+| 3d Model        | https://kaylousberg.itch.io/kaykit-adventurers        |
