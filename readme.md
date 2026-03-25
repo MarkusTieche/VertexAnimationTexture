@@ -1,1 +1,9 @@
 # Vertex Animation Texture in Godot
+
+## VAT Concept
+The concept of Vertex Animation Textures (VAT), a technique where vertex motion is baked into textures and played back on the GPU. Instead of using bones or CPU-driven deformation, each vertex reads its animated position (or offset) from a texture in the shader.
+In this sample, the cube’s top face moves up and down based on data stored in the VAT. The accompanying texture visualizes this encoded animation, where pixel values represent vertex positions over time. This approach is highly efficient and commonly used for complex effects like simulations, crowds, or procedural deformations.
+
+<p align="center">
+  <img src="media/VAT_concept.gif" alt="VAT example" width="600" />
+</p>
