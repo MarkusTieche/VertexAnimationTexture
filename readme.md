@@ -8,6 +8,10 @@ In this sample, the cube’s top face moves up and down based on data stored in 
   <img src="media/VAT_concept.gif" alt="VAT example" width="600" />
 </p>
 
+## Export from Blender
+
+## Import in Godot
+
 ### Resources
 |  |  |
 |-------------|--------------|
