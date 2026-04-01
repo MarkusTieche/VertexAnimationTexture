@@ -1,41 +1,41 @@
 {
-    "os-remap": {
-        "Min": [
-            -1.0,
-            -0.9,
-            -2.5
-        ],
-        "Max": [
-            1.0,
-            2.9,
-            1.2
-        ],
-        "Frames": 92
-    },
-    "animations": {
-        "Spawn": {
-            "startFrame": 1,
-            "endFrame": 32,
-            "framerate": 24,
-            "looping": false
-        },
-        "Run_A": {
-            "startFrame": 32,
-            "endFrame": 53,
-            "framerate": 24,
-            "looping": true
-        },
-        "Run_B": {
-            "startFrame": 53,
-            "endFrame": 72,
-            "framerate": 24,
-            "looping": true
-        },
-        "Death": {
-            "startFrame": 72,
-            "endFrame": 91,
-            "framerate": 24,
-            "looping": false
-        }
-    }
+	"os-remap": {
+		"Min": [
+			-1.0,
+			-0.9,
+			-2.5
+		],
+		"Max": [
+			1.0,
+			2.9,
+			1.2
+		],
+		"Frames": 92
+	},
+	"animations": {
+		"Spawn": {
+			"startFrame": 1,
+			"endFrame": 32,
+			"framerate": 24,
+			"looping": false
+		},
+		"Run_A": {
+			"startFrame": 32,
+			"endFrame": 53,
+			"framerate": 24,
+			"looping": true
+		},
+		"Run_B": {
+			"startFrame": 53,
+			"endFrame": 72,
+			"framerate": 24,
+			"looping": true
+		},
+		"Death": {
+			"startFrame": 72,
+			"endFrame": 91,
+			"framerate": 24,
+			"looping": false
+		}
+	}
 }
