@@ -13,6 +13,7 @@ To export vertex animation textures from Blender using OpenVAT, ensure that all 
 
 For more detailed instructions on using the plugin, visit: https://openvat.org
 
+> [!NOTE]
 > If exportet as gltf the material is corrupted in Godot and can not be imported directly. Either export the VAT created Model seperatly or create a new Material.
 
 ## Import in Godot
