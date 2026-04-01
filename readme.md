@@ -9,11 +9,15 @@ In this sample, the cube’s top face moves up and down based on data stored in 
 </p>
 
 ## Export from Blender
-To export vertex animation textures from Blender using OpenVAT, ensure that all animations are combined into a single NLA strip—only animation data contained within an active NLA strip will be exported. Before exporting, push your actions to the NLA Editor and arrange them into one continuous strip if needed. For correct shading in Godot, vertex normals should be exported to a separate texture: enable this by toggling “Separate Map” in the Vertex Normal dropdown during export.
+To export vertex animation textures from Blender using OpenVAT, ensure that all animations are combined into a single NLA strip—only animation data contained within an active NLA strip will be exported. Before exporting, push your actions to the NLA Editor and arrange them into one continuous strip if needed. For correct shading in Godot, vertex normals should be exported with the same texture on the lower half. 
 
 For more detailed instructions on using the plugin, visit: https://openvat.org
 
+> If exportet as gltf the material is corrupted in Godot and can not be imported directly. Either export the VAT created Model seperatly or create a new Material.
+
 ## Import in Godot
+-set use external material in settings in import manager in godot, add new material
+
 
 ### Resources
 |  |  |
