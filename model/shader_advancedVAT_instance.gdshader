@@ -6,13 +6,13 @@ shader_type spatial;
 // "Export Model" checked
 // "Model Format" = "glTF Binary" (other formats result in a broken animation as of 2026-02-09)
 
-group_uniforms Animation;
-uniform int frame_start = 0;
-uniform int frame_end = 0; // 0 = use full range
-uniform int frame_fps = 24;
-uniform float anim_phase_offset : hint_range(0.0, 1.0) = 0.0; 
-uniform bool loop_animation = true;
-instance uniform float instanceStopTime = 0.0;    // seconds to stop (0 = loop forever)
+
+instance uniform int frame_start = 0;
+instance uniform int frame_end = 0; // 0 = use full range
+instance uniform int frame_fps = 24;
+instance uniform float anim_phase_offset : hint_range(0.0, 1.0) = 0.0; 
+instance uniform bool loop_animation = true;
+instance uniform float instanceStartTime = 0.0;    // seconds to stop (0 = loop forever)
 
 group_uniforms OpenVAT;
 /**
@@ -56,6 +56,8 @@ uniform sampler2D normal_map_texture : hint_roughness_normal;
 uniform float normal_scale : hint_range(-16.0, 16.0) = 1.0;
 group_uniforms;
 
+
+
 vec3 blenderToGodot(vec3 v) {
 	return vec3(v.x, v.z, -v.y);
 }
@@ -82,29 +84,53 @@ void vertex() {
 
 	ivec2 resolution = textureSize(vertex_animation_texture, 0);
 	int total_frames = resolution.y / 2;
+	
 
 	int start_frame = frame_start;
 	int end_frame = (frame_end > 0) ? min(frame_end, total_frames - 1) : (total_frames - 1);
 
 	int frame_range = max(1, end_frame - start_frame + 1);
 
+
 	if (playing) {
-		float t = TIME * speed + anim_phase_offset * float(frame_range);
-		frame_time = mod(t, float(frame_range));
-		current_frame = start_frame + int(floor(frame_time));
-		next_frame = start_frame + (int(floor(frame_time)) + 1) % frame_range;
+	    // Per-instance local time
+	    float local_time = max(0.0, TIME - instanceStartTime);
+		
+	    // Time with phase offset
+	    float t = local_time * speed + anim_phase_offset * float(frame_range);
+	
+	    if (loop_animation) {
+	        frame_time = mod(t, float(frame_range));
+	    } else {
+	        frame_time = min(t, float(frame_range - 1));
+	    }
+
+	    int base_frame = int(floor(frame_time));
+
+	    current_frame = start_frame + base_frame;
+
+	    if (loop_animation) {
+	        next_frame = start_frame + (base_frame + 1) % frame_range;
+	    } else {
+	        next_frame = start_frame + min(base_frame + 1, frame_range - 1);
+	    }
+		
 	} else {
-		current_frame = start_frame + (pause_frame % frame_range);
-		next_frame = current_frame;
+	    current_frame = start_frame + (pause_frame % frame_range);
+	    next_frame = current_frame;
+
+	    // Important: define frame_time so blend doesn't break
+	    frame_time = float(pause_frame % frame_range);
 	}
 
 	float blend = fract(frame_time);
+		
 
 	// Calculate the UV offset for the current frame
 	float frame_step = 1.0 / float(resolution.y);
 	vec2 current_offset_uv = UV2 + vec2(0.0, float(current_frame) * frame_step);
 	vec2 next_offset_uv = UV2 + vec2(0.0, float(next_frame) * frame_step);
-
+	
 	// Apply the remapped position to the vertex
 	VERTEX += blenderToGodot(rescalePosition(
 		interpolateVatOffset(current_offset_uv, next_offset_uv, blend)
@@ -128,6 +154,7 @@ void vertex() {
 }
 
 void fragment() {
+	
 	ALBEDO = albedo.rgb * texture(albedo_texture, UV).rgb;
 	METALLIC = dot(texture(metallic_texture, UV), metallic_texture_channel) * metallic;
 	SPECULAR = specular;
