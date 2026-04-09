@@ -83,7 +83,7 @@ You are encouraged to adjust:
 
 The goal is not to enforce a single workflow, but to provide a **controllable VAT framework** that you can reshape to match your project’s needs without the use of a Multimesh.
 
-### Notes
+## Notes
 > [!NOTE]
 > Shader time ≠ Time.get_ticks_msec() / 1000.0. It’s better to calculate time manually, preferably in a global scope.
 ```gdscript 
@@ -95,7 +95,7 @@ The goal is not to enforce a single workflow, but to provide a **controllable VA
 
 ---
 
-### Resources
+## Resources
 |  |  |
 |-------------|--------------|
 | Blender addon   | https://openvat.org/       |
