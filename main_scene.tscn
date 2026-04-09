@@ -27,6 +27,6 @@ loop = true
 [node name="Knight_vat" type="MeshInstance3D" parent="Knight_adv_instance" unique_id=1642700594]
 instance_shader_parameters/frame_end = 52
 instance_shader_parameters/frame_start = 34
-instance_shader_parameters/instanceStartTime = 764.516
+instance_shader_parameters/instanceStartTime = 16.176
 instance_shader_parameters/loop_animation = true
 mesh = ExtResource("3_gyfs4")
