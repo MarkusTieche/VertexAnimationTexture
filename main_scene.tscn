@@ -3,20 +3,26 @@
 [ext_resource type="PackedScene" uid="uid://owui3agt3j8s" path="res://model/Knight.glb" id="1_0f027"]
 [ext_resource type="Script" uid="uid://cy07f3edy54m2" path="res://VAT_controller.gd" id="2_gyfs4"]
 [ext_resource type="ArrayMesh" uid="uid://dt15xbl172irs" path="res://model/knight_array_mesh.tres" id="3_gyfs4"]
+[ext_resource type="Texture2D" uid="uid://b1eppotj5abul" path="res://material/tex_Prototype.png" id="4_d5x1h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d5x1h"]
+albedo_texture = ExtResource("4_d5x1h")
+uv1_triplanar = true
 
 [node name="MainScene" type="Node3D" unique_id=157517639]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1630836568]
-transform = Transform3D(1, 0, 0, 0, 0.9343227, 0.35642818, 0, -0.35642818, 0.9343227, 0.86393046, 2.476603, 5.347515)
+transform = Transform3D(1, 0, 0, 0, 0.9588197, 0.2840153, 0, -0.2840153, 0.9588197, 0, 2.748, 5.122)
+fov = 50.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1961817302]
-transform = Transform3D(0.7498294, 0.41475764, -0.515492, -0.23086897, 0.894169, 0.38361618, 0.6200447, -0.1686356, 0.7662288, -2.4945297, 1.6217928, 3)
+transform = Transform3D(1, 0, 0, 0, 0.7071068, 0.70710695, 0, -0.70710677, 0.70710665, -2.4945297, 5.621793, 3)
 
-[node name="Knight" parent="." unique_id=1784089379 instance=ExtResource("1_0f027")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
+[node name="Knight_default" parent="." unique_id=1784089379 instance=ExtResource("1_0f027")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, -2, 0, 0)
 
 [node name="Knight_adv_instance" type="Node3D" parent="." unique_id=625109546 node_paths=PackedStringArray("target_mesh")]
-transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 2.1634278, 0, 0)
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("2_gyfs4")
 target_mesh = NodePath("Knight_vat")
 startFrame = 34
@@ -30,3 +36,25 @@ instance_shader_parameters/frame_start = 34
 instance_shader_parameters/instanceStartTime = 0.0
 instance_shader_parameters/loop_animation = true
 mesh = ExtResource("3_gyfs4")
+
+[node name="Knight_advBlend_instance" type="Node3D" parent="." unique_id=1576647308 node_paths=PackedStringArray("target_mesh")]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 2, 0, 0)
+script = ExtResource("2_gyfs4")
+target_mesh = NodePath("Knight_vat")
+startFrame = 34
+endFrame = 52
+frameRate = 24
+loop = true
+
+[node name="Knight_vat" type="MeshInstance3D" parent="Knight_advBlend_instance" unique_id=204150221]
+instance_shader_parameters/frame_end = 52
+instance_shader_parameters/frame_start = 34
+instance_shader_parameters/instanceStartTime = 0.0
+instance_shader_parameters/loop_animation = true
+mesh = ExtResource("3_gyfs4")
+
+[node name="ground" type="CSGPolygon3D" parent="." unique_id=1703420745]
+transform = Transform3D(-1.3113416e-07, 0, 3, 0, 3, 0, -3, 0, -1.3113416e-07, 15, 0.59, -7.664)
+polygon = PackedVector2Array(-5.871658, -0.60284156, -0.40034556, -0.5750845, -0.13528407, -0.3887131, 0.034520745, -0.06566955, 0.06028545, 4.578907, 0.8646163, 4.578907, 0.7344483, -1.063791, -5.8639235, -1.0746129)
+depth = 10.0
+material = SubResource("StandardMaterial3D_d5x1h")
