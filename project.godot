@@ -27,3 +27,10 @@ config/icon="res://icon.svg"
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+
+[shader_globals]
+
+globalTime={
+"type": "float",
+"value": 0.0
+}
