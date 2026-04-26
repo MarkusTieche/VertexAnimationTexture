@@ -14,28 +14,32 @@
 	},
 	"animations": {
 		"Spawn": {
-			"startFrame": 1,
-			"endFrame": 32,
+			"startFrame": 2,
+			"endFrame": 33,
 			"framerate": 24,
-			"looping": false
+			"looping": false,
+			"blend": false
 		},
 		"Run_A": {
-			"startFrame": 32,
-			"endFrame": 53,
+			"startFrame": 34,
+			"endFrame": 52,
 			"framerate": 24,
-			"looping": true
+			"looping": true,
+			"blend": true
 		},
 		"Run_B": {
 			"startFrame": 53,
-			"endFrame": 72,
+			"endFrame": 71,
 			"framerate": 24,
-			"looping": true
+			"looping": true,
+			"blend": true
 		},
 		"Death": {
 			"startFrame": 72,
-			"endFrame": 91,
+			"endFrame": 90,
 			"framerate": 24,
-			"looping": false
+			"looping": false,
+			"blend": false
 		}
 	}
 }

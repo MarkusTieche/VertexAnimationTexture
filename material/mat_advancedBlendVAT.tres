@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://d06x63sjmkbqt"]
 
-[ext_resource type="Shader" uid="uid://b0jk27hn75lp5" path="res://material/shader_advancedVAT_instance.gdshader" id="1_igc8n"]
+[ext_resource type="Shader" uid="uid://chp5ttm64g5hl" path="res://material/shader_advancedVATblend_instance.gdshader" id="1_igc8n"]
 [ext_resource type="Texture2D" uid="uid://bgxe2twi3fe36" path="res://model/Knight_knight_basecolor.png" id="2_awssk"]
 [ext_resource type="Texture2D" uid="uid://b8x4ojk3kj83k" path="res://model/Knight_vat.exr" id="3_4m2hu"]
 

@@ -1,6 +1,6 @@
 [gd_resource type="ArrayMesh" format=4 uid="uid://dt15xbl172irs"]
 
-[ext_resource type="Material" uid="uid://d06x63sjmkbqt" path="res://material/mat_advancedBlendVAT.tres" id="1_svmvs"]
+[ext_resource type="Material" uid="uid://bt0i42t85ow5v" path="res://material/mat_advancedVAT.tres" id="1_svmvs"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_t22mj"]
 _surfaces = [{

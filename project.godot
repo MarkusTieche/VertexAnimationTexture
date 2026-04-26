@@ -16,6 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="VertexAnimationTexture"
 config/tags=PackedStringArray("concept")
+run/main_scene="uid://fcc66lrv8io0"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
